@@ -18,11 +18,11 @@ I have chosen to write the solution in python, as it is my go-to programming lan
 
 # Install guide
 
-This repository requires a python3, preferably version 3.3 or higher. Because the python 'venv' (virtualenv) module is included with the installation. Otherwise you have to install it yourself. I have written this code on a macbook with python 3.7.4
+This repository requires python3, preferably version 3.3 or higher. Because the python 'venv' (virtualenv) module is included with the installation. Otherwise you have to install it yourself. I have written this code on a macbook with python 3.7.4
 
 https://www.python.org/downloads/
 
-And also requires an installation of git.
+Also an installation of git is required.
 
 https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
