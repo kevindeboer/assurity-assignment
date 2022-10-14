@@ -70,14 +70,15 @@ This should give a result like
 ![](screenshot.png)
 
 # Project layout
+```
 `root/`
-&emsp;`assurity/` 
-&emsp;&emsp;`api.py`  *reuseable class for interacting the webservice*
-&emsp;&emsp;`config.py` *configurable base url*
-&emsp;`README.md`  *this file*
-&emsp;`requirements.txt` *contains project dependencies*
-&emsp;`test_assurity.py` *contains the test*
-
+    `assurity/` 
+        `api.py`  *reuseable class for interacting the webservice*
+        `config.py` *configurable base url*
+    `README.md`  *this file*
+    `requirements.txt` *contains project dependencies*
+    `test_assurity.py` *contains the test*
+```
 # Approach
 
 After deciding on python, I immediately knew I would want to use the `requests` and `pytest` modules. Even though python has its own built-in functions for doing http calls, and making tests. These two packages are widely used within the python community, and some may even consider them the new standard. I also have more experience working with these frameworks rather than the built-in ones.
