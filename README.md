@@ -115,7 +115,7 @@ I have separated the base url in `config.py` to make it easier for when you may 
 
 Then finally, in the test I use my `SandboxAPI` class to call the webservice. I assert that its response is 200. If not, there is no point in trying to compare values of the json. Then I parse the json response, extract the values to be checked, and verify each in an assert statement.
 
-I could've cut up the test in to three separate tests. That would show more features of the pytest framework, and show more reusability of the `SandboxAPI` class. But if the only use of writing more code would be to illustrate the resusability of the code, then in this case I would favor 'less is more'. As a compromise I instantiate the `SandboxAPI` through a a pytest fixture. Which allows it to be reused in other test functions, even though at this point there is no real need for it.
+I could've cut up the test in to three separate tests. That would show more features of the pytest framework, and show more reusability of the coe. But if the only use of writing more code would be to illustrate the resusability of it, then in this case I would favor 'less is more'. As a compromise I instantiate the `SandboxAPI` through a a pytest fixture. Which allows it to be reused in other test functions, even though at this point there is no real need for it yet.
 
 And by focussing on making the test run from the command line, it would make it easier to execute it in a ci/cd pipeline
 
