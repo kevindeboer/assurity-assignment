@@ -83,7 +83,7 @@ You should now be good to go.
 
 When you are finished, use `deactivate` in the terminal to deactivate the virtualenv (or close the terminal completely). 
 
-# Executing code
+### Executing code
 
 From the root of the repository, run (with virtualenv still activated):  
 Linux/Mac: `pytest`  
