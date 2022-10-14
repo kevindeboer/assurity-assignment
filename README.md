@@ -14,7 +14,7 @@ The assignment is as follows:
 -   CanRelist = true
 -   The  Promotions  element with  Name = "Gallery" has a Description that contains the text "Good position in category"
 
-I have chosen to write the solution in python, as it is my go-to programming language for assignments like this. It does not require heavy-weight editors, and I find it the time-to-hello-world to be one of the lowest. 
+I have chosen to write the solution in python, as it is my go-to programming language for assignments like this. It does not require heavy-weight editors, and I find the time-to-hello-world to be one of the lowest. 
 
 # Install guide
 
