@@ -76,7 +76,7 @@ After creating the virtualenv directory, you then have to activate it. Navigate 
 Linux/Mac: `source venvkevin/bin/activate`  
 Windows: `venvkevin\Scripts\activate.bat`
 
-Finally, after having activated the virtualenv, which should be visible by the (venvkevin) in front command line, navigate back to the project, and install the the dependencies using python's package manager 'pip':
+Finally, after having activated the virtualenv, which should be visible by the (venvkevin) in front command line, navigate back to the project, and install the the dependencies using python's package manager 'pip':  
 `pip install -r requirements.txt`
 
 You should now be good to go.
