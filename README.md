@@ -1,6 +1,6 @@
 # Assurity assignment 
 
-This repository is my proposed solution to the assignment given to my by Assurity for my application of Senior Test Engineer.
+This repository is my proposed solution to the assignment given to me by Assurity for my application of Senior Test Engineer.
 
 The assignment is as follows: 
 
@@ -21,6 +21,10 @@ I have chosen to write the solution in python, as it is my go-to programming lan
 This repository requires a python3, preferably version 3.3 or higher. Because the python 'venv' (virtualenv) module is included with the installation. Otherwise you have to install it yourself. I have written this code on a macbook with python 3.7.4
 
 https://www.python.org/downloads/
+
+And also requires an installation of git.
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ## Short guide
 Linux/Mac:
