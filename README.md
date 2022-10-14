@@ -25,45 +25,65 @@ https://www.python.org/downloads/
 ## Short guide
 Linux/Mac:
 ```
-
+% cd /project/path/of/your/choosing
+% git clone https://github.com/kevindeboer/assurity-assignment
+% python -m venv /venv/path/of/your/choosing/venvkevin
+% source /venv/path/of/your/choosing/venvkevin/bin/activate
+(venvkevin) % pip install -r requirements.txt
+(venvkevin) % pytest
+(venvkevin) % deactivate
+% ...
 ```
 
-Windows:
+Windows (I could not test this myself):
 ```
-
+> cd c:\project\path\of\your\choosing
+> git clone https://github.com/kevindeboer/assurity-assignment
+> c:\path\to\python -m venv c:\venv\path\of\your\choosing\venvkevin
+> c:\venv\path\of\your\choosing\venvkevin\Scripts\activate.bat
+(venvkevin) > pip install -r requirements.txt
+(venvkevin) > py.test
+(venvkevin) > deactivate
+> ...
 ```
 
 ## Long guide
 ### Getting the repository
 
+Clone this repository in a directory of your choosing from a command line using the command: 
+
+`git clone https://github.com/kevindeboer/assurity-assignment`
 
 ### Installing dependencies
 Virtualenv is python's solution to separating project dependencies to avoid version conflicts and pollution of your global python installation. It is highly recommended to use one for every project, but it is still optional.
 
-To create a virtualenv in a terminal window (assuming python version >3.3):
-Linux/Mac: python3 -m venv /path/to/myenv
-Windows: path\to\python -m venv c:\path\to\myenv
+To create a virtualenv (I use the name 'venvkevin' in this guide, but you can choose something else if you want) in a terminal window (assuming python version >3.3):
+
+Linux/Mac: `python3 -m venv /path/to/venvkevin`  
+Windows: `path\to\python -m venv c:\path\to\venvkevin`
 
 Alternatively, if you configured the  `PATH`  variable (https://docs.python.org/3/using/windows.html#using-on-windows):
 
-c:\>python -m venv c:\path\to\myenv
+`c:\>python -m venv c:\path\to\venvkevin`
 
-This will create a new directory where primarily new dependencies will be installed to. It is recommended to not create the virtualenv directory in the same repository as the project, or at least configure the repository to not push the virtualenv directory to the remote repository (which I did in .gitignore), as the virtualenv directory may quickly explode in size due to dependencies requiring other dependencies which require other dependencies which require...
+This will create a new directory where new dependencies will be installed to. You can delete this directory when you're done examining this project. It is recommended to not create the virtualenv directory in the same repository as the project, or at least configure the repository to not push the virtualenv directory to the remote repository, as the virtualenv directory may quickly explode in size due to dependencies requiring other dependencies which require other dependencies which require...
 
-After creating the virtualenv directory, you then have to activate it. Navigate to the created directory, then:
-Linux/Mac: source myenv/bin/activate
-Windows: myenv\Scripts\activate.bat
+After creating the virtualenv directory, you then have to activate it. Navigate to the created directory, then:  
+Linux/Mac: `source venvkevin/bin/activate`  
+Windows: `venvkevin\Scripts\activate.bat`
 
-Finally, having activated the virtualenv, navigate back to the project, and install the the dependencies using python's package manager 'pip':
-pip install -r requirements.txt
+Finally, after having activated the virtualenv, which should be visible by the (venvkevin) in front command line, navigate back to the project, and install the the dependencies using python's package manager 'pip':
+`pip install -r requirements.txt`
 
 You should now be good to go.
 
+When you are finished, use `deactivate` in the terminal to deactivate the virtualenv (or close the terminal completely). 
+
 # Executing code
 
-From the root of the repository, run (with virtualenv still activated):
-Linux/Mac: pytest
-Windows: py.test
+From the root of the repository, run (with virtualenv still activated):  
+Linux/Mac: `pytest`  
+Windows: `py.test`
 
 This should give a result like
 
@@ -71,13 +91,13 @@ This should give a result like
 
 # Project layout
 ```
-`root/`
-    `assurity/` 
-        `api.py`  *reuseable class for interacting the webservice*
-        `config.py` *configurable base url*
-    `README.md`  *this file*
-    `requirements.txt` *contains project dependencies*
-    `test_assurity.py` *contains the test*
+root/
+    assurity/
+        api.py  // reuseable class for interacting the webservice
+        config.py // configurable base url
+    README.md  // this file
+    requirements.txt // contains project dependencies
+    test_assurity.py // contains the test
 ```
 # Approach
 
@@ -89,10 +109,10 @@ Before writing the test, I first needed some code to make the call to the webser
 
 I have separated the base url in `config.py` to make it easier for when you may want to run a test against a different server, environment, or local port. 
 
-Then finally, in the test I use my SandboxAPI to call the webservice. I assert that its response is 200. If not, there is no point in trying to compare that values of the json. Then I parse the json response, extract the values to be checked, and verify each in an assert statement.
+Then finally, in the test I use my `SandboxAPI` class to call the webservice. I assert that its response is 200. If not, there is no point in trying to compare values of the json. Then I parse the json response, extract the values to be checked, and verify each in an assert statement.
 
-I could've cut up the test in to three separate tests. This would illustrate the reusability of the `SandboxAPI` a bit more. But In this case I favor 'less is more'. 
+I could've cut up the test in to three separate tests. That would show more features of the pytest framework, and show more reusability of the `SandboxAPI` class. But if the only use of writing more code would be to illustrate the resusability of the code, then in this case I would favor 'less is more'. As a compromise I instantiate the `SandboxAPI` through a a pytest fixture. Which allows it to be reused in other test functions, even though at this point there is no real need for it.
 
-
+And by focussing on making the test run from the command line, it would make it easier to execute it in a ci/cd pipeline
 
 
